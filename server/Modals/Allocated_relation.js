@@ -10,6 +10,7 @@ const allocatedSchema = mongoose.Schema({
     student_roll_no: {
         type: String,
         required: true,
+        unique: true,
     }
 
 }, { timestamps: true })

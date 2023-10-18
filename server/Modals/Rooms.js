@@ -5,6 +5,7 @@ const roomSchema = mongoose.Schema({
     room_id: {
         type: Number,
         required: true,
+        unique: true,
     },
     block_name: {
         type: mongoose.Schema.Types.ObjectId,
