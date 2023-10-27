@@ -1,5 +1,5 @@
 const router=require('express').Router();
-const Admin=require('../models/Admin.js');
+const Admin=require('../Modals/Admin.js');
 
 router.post("/register",async(req,res)=>{
     try{
