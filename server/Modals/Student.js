@@ -44,6 +44,10 @@ const studentSchema=new mongoose.Schema({
     confirmPassword:{
         type:String,
         required:true
+    },
+    bill:{
+        type:Number,
+        default:0
     }
 })
 
