@@ -4,7 +4,7 @@ const Admin=require("./Admin")
 
 const bonofideSchema=new mongoose.Schema({
     appliedStudentID : {
-        type:mongoose.Schema.Types.ObjectId,
+        type:string,
         ref:'Student',
         required:true
     },
