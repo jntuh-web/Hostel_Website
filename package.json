@@ -1,8 +1,31 @@
 {
+  "name": "hms",
+  "version": "1.0.0",
+  "description": "HMS project",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jntuh-web/Hostel_Website.git"
+  },
+  "keywords": [
+    "HMS"
+  ],
+  "author": "shiva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jntuh-web/Hostel_Website/issues"
+  },
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongodb": "^6.1.0",
-    "mongoose": "^7.6.2",
-    "nodemon": "^3.0.1"
+    "md5": "^2.3.0",
+    "mongoose": "^7.6.3",
+    "nodemailer": "^6.9.7"
   }
 }
