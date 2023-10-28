@@ -2,7 +2,7 @@ const mongoose=require("mongoose");
 const Student=require("./Student")
 const complaintSchema=new mongoose.Schema({
     complainedStudentID : {
-        type:mongoose.Schema.Types.ObjectId,
+        type:string,
         ref:'Student',
         required:true
     },
