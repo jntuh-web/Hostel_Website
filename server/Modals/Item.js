@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-import Vendor from "./Vendor";
 
-const fixedItemsSchema = new mongoose.Schema({
+const ItemSchema = new mongoose.Schema({
     id: {
         type: Number,
         default: 0,
@@ -29,13 +28,13 @@ const fixedItemsSchema = new mongoose.Schema({
     }
 }, { timestamps: true },)
 
-fixedItemsSchema.pre('save', async function (next) {
+ItemSchema.pre('save', async function (next) {
     try {
         // Find the latest transaction and get its transaction number
-        const latestTransaction = await this.constructor.findOne({}, {}, { sort: { tno: -1 } });
+        const latestTransaction = await this.constructor.findOne({}, {}, { sort: { id: -1 } });
 
         // Increment the transaction number for the current transaction
-        this.tno = latestTransaction ? latestTransaction.tno + 1 : 1;
+        this.id = latestTransaction ? latestTransaction.tno + 1 : 1;
 
         next();
     } catch (error) {
@@ -43,4 +42,4 @@ fixedItemsSchema.pre('save', async function (next) {
     }
 });
 
-module.exports = mongoose.module("Fixed-items", fixedItemsSchema)
+module.exports = mongoose.model("Fixed-items", ItemSchema)
