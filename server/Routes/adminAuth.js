@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Admin = require('../Modals/Admin.js');
 const bcrypt = require("bcrypt");
+const Employees=require("../Modals/EmployeeList.js")
 
 //gmail validation
 function isGmailValid(email) {
@@ -12,7 +13,12 @@ router.post("/register", async (req, res) => {
     try {
         const Password = req.body.password;
         const ConfirmPassword = req.body.confirmPassword;
+        const adminNo = req.body.adminID;
+        const validAdmin = await Employees.findOne({ adminNumber: adminNo });
 
+        if (!validAdmin) {
+        return res.status(400).json('You are not an employee');
+        }
         if (Password !== ConfirmPassword) {
             return res.status(400).json("Passwords not matching");
         } else {

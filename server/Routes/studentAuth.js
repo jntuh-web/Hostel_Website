@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Student = require('../Modals/Student');
 const bcrypt = require('bcrypt');
+const allocatedStudents=require("../Modals/AllocatedList")
 
 // Function to check if an email is a valid Gmail address
 function isGmailValid(email) {
@@ -12,6 +13,13 @@ router.post('/register', async (req, res) => {
   try {
     const Password = req.body.password;
     const ConfirmPassword = req.body.confirmPassword;
+
+    const rollNo = req.body.rollNumber;
+    const validStudent = await allocatedStudents.findOne({ rollNumber: rollNo });
+
+    if (!validStudent) {
+      return res.status(400).json('You are not a hostel student');
+    }
 
     if (Password !== ConfirmPassword) {
       return res.status(400).json('Passwords not matching');
