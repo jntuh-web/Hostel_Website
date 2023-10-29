@@ -10,7 +10,7 @@ const bonofideRoute=require("./Routes/bonofide")
 app.use(express.json())
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/Hostel",{
+mongoose.connect("mongodb+srv://jntuh-ucesth:XrnpuRvXoT8WN9bM@cluster0.3mjnvj0.mongodb.net/",{
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(console.log("Connection succesful"))
