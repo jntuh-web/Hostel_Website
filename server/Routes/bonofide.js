@@ -8,7 +8,7 @@ const { application } = require("express");
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'kadaruminni24@gmail.com', // Your Gmail email address
+      user: 'your@gmail.com', // Your Gmail email address
       pass: 'zsnriadworrmfeiu'   // Your Gmail password or an "App Password" if using 2-factor authentication
     }
   });
@@ -43,7 +43,7 @@ router.post("/applyBonofide",async(req,res)=>{
         // Sending an email
         const mailOptions = {
             from: populatedApplication.appliedStudentID.email,
-            to: 'kadaruminni24@gmail.com', 
+            to: 'your@gmail.com', 
             subject: 'New Bonofide Application',
             text: `A new Bonofide application has been submitted by ${populatedApplication.appliedStudentID.studentName}. Reason: ${populatedApplication.reasonForBonofide}`
         };
