@@ -19,3 +19,4 @@ const bonofideSchema=new mongoose.Schema({
         default:"Unverified"
     }
 })
+module.exports=mongoose.model("Bonofide",bonofideSchema)
