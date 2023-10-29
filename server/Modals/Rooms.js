@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-import Hostle from "./Hostle";
 
 const roomSchema = mongoose.Schema({
     room_id: {
@@ -22,4 +21,4 @@ const roomSchema = mongoose.Schema({
     },
 }, { timestamps: true })
 
-module.exports = mongoose.module("Room", roomSchema);
+module.exports = mongoose.model("Room", roomSchema);

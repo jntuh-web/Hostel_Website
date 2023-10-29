@@ -38,10 +38,10 @@ const vendorSchema = mongoose.Schema({
 vendorSchema.pre('save', async function (next) {
     try {
         // Find the latest transaction and get its transaction number
-        const latestTransaction = await this.constructor.findOne({}, {}, { sort: { tno: -1 } });
+        const latestTransaction = await this.constructor.findOne({}, {}, { sort: { id: -1 } });
 
         // Increment the transaction number for the current transaction
-        this.tno = latestTransaction ? latestTransaction.tno + 1 : 1;
+        this.id = latestTransaction ? latestTransaction.tno + 1 : 1;
 
         next();
     } catch (error) {
@@ -49,4 +49,4 @@ vendorSchema.pre('save', async function (next) {
     }
 });
 
-module.exports = mongoose.module("Vendor", vendorSchema);
+module.exports = mongoose.model("Vendor", vendorSchema);

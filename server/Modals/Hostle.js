@@ -12,4 +12,4 @@ const hostleSchema = mongoose.Schema({
     },
 }, { timestamps: true })
 
-module.exports = mongoose.module("Hostle", hostleSchema);
+module.exports = mongoose.model("Hostle", hostleSchema);
